@@ -1,0 +1,33 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.item-image {
+    width: 100px;
+    height: auto;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.item-details h4 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.item-details p {
+    margin: 5px 0;
+}
+
+.item-details button {
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

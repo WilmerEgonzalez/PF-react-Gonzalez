@@ -1,0 +1,36 @@
+.item-count-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.count-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 20px;
+    color: #333;
+}
+
+.count-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.count-button:hover {
+    background-color: #0056b3;
+}
+
+.count-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
