@@ -2,23 +2,21 @@ import './ItemDetailContainer.css'
 import { useState, useEffect } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
-
-import { getDocs, doc } from 'firebase/firestore'
+import { getDoc, doc } from 'firebase/firestore'
 import { db } from '../../services/firebase/firebaseConfig'
 
-const ItemDetailContainer =() => {
+const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null)
     const [loading, setLoading] = useState(true)
-
     const { itemId } = useParams()
 
     useEffect(() => {
         setLoading(true)
 
-        const docRef = doc(db, 'products', itemId)
+        const docRef = doc(db, 'Items', itemId)
 
-        getDocs(docRef)
-            .then(Response => {
+        getDoc(docRef)
+            .then(response => {
                 const data = response.data()
                 const productAdapted = { id: response.id, ...data }
                 setProduct(productAdapted)
@@ -31,9 +29,9 @@ const ItemDetailContainer =() => {
             })
     }, [itemId])
 
-    return(
-        <div className='ItemDetailContainer' >
-            <ItemDetail {...product} />
+    return (
+        <div className='ItemDetailContainer'>
+            {loading ? <p>Loading...</p> : <ItemDetail {...product} />}
         </div>
     )
 }
